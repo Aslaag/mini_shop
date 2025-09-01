@@ -23,5 +23,6 @@
   "errorPrice": "Le prix doit être supérieur ou égal à 0",
   "errorStock": "Le stock doit être un entier supérieur ou égal à 0",
   "€":"(€)",
-  "close": "Fermer "
+  "close": "Fermer ",
+  "noProducts": "Aucun produit trouvé"
 }

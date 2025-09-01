@@ -23,5 +23,6 @@
   "errorPrice": "Price must be greater than or equal to 0",
   "errorStock": "Stock must be an integer greater than or equal to 0",
   "€":"(€)",
-  "close": "Close "
+  "close": "Close ",
+  "noProducts": "No product found"
 }

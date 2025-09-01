@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { Product } from "../types/Products";
 import { ProductCard } from "./ProductCard";
 
@@ -6,11 +7,26 @@ interface Props {
 }
 
 export function ProductCardContainer({ products }: Props) {
+  const { t } = useTranslation();
+
+  if (products.length === 0) {
+    return (
+      <p className="text-gray-600 italic text-center mt-6">
+        {t("noProducts")}
+      </p>
+    );
+  }
+
   return (
-    <div className="flex flex-wrap justify-around w-2/3">
-    {products.map((p) => (
-        <ProductCard key={p.id} product={p} />
+    <div 
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto"
+      role="list"
+    >
+      {products.map((p) => (
+        <div key={p.id} role="listitem">
+          <ProductCard product={p} />
+        </div>
       ))}
     </div>
-  )
+  );
 }

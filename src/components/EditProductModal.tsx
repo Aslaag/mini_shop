@@ -15,13 +15,18 @@ export function EditProductModal({ product, isOpen, onClose, onSave }: Props) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+    <div
+      className="fixed inset-0 bg-black/50 flex justify-center items-center z-50"
+      role="dialog"
+      aria-modal="true"
+    >
       <div className="bg-white p-10 rounded-xl shadow-lg w-11/12 max-w-md relative">
         <button
           onClick={onClose}
+          aria-label={t("close")}
           className="absolute top-2 right-2"
         >
-          {t("close")}
+          ✕
         </button>
 
         <EditProductForm product={product} onSave={onSave} />
@@ -29,3 +34,4 @@ export function EditProductModal({ product, isOpen, onClose, onSave }: Props) {
     </div>
   );
 }
+

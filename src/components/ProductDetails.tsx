@@ -18,6 +18,7 @@ export function ProductDetail({ product, onEditClick }: Props) {
         className={`font-medium ${
           product.stock > 0 ? "text-green-600" : "text-red-600"
         }`}
+        aria-live="polite"
       >
         {product.stock > 0
           ? `${t("stock")} (${product.stock})`
@@ -26,12 +27,15 @@ export function ProductDetail({ product, onEditClick }: Props) {
 
       <div className="flex gap-4">
         <button
-          onClick={onEditClick}
-          className="mt-4 px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800"
+        type="button"
+        onClick={onEditClick}
+        className="mt-4 px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800"
         >
           {t("edit")}
         </button>
+
         <button
+          type="button"
           onClick={() => window.history.back()}
           className="mt-4 px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800"
         >
