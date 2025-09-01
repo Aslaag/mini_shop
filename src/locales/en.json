@@ -19,5 +19,9 @@
   "categoryTech": "Tech",
   "categoryStationery": "Stationery",
   "productNotFound":"Product not found",
-  "back": "Back"
+  "back": "Back",
+  "errorPrice": "Price must be greater than or equal to 0",
+  "errorStock": "Stock must be an integer greater than or equal to 0",
+  "€":"(€)",
+  "close": "Close "
 }

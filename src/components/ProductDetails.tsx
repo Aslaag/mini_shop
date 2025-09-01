@@ -3,9 +3,10 @@ import type { Product } from "../types/Products";
 
 interface Props {
   product: Product;
+  onEditClick?: () => void;
 }
 
-export function ProductDetail({ product }: Props) {
+export function ProductDetail({ product, onEditClick }: Props) {
   const { t } = useTranslation();
 
   return (
@@ -23,12 +24,20 @@ export function ProductDetail({ product }: Props) {
           : t("outOfStock")}
       </p>
 
-      <button
-        onClick={() => window.history.back()}
-        className="mt-4 px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800"
-      >
-        {t("back")}
-      </button>
+      <div className="flex gap-4">
+        <button
+          onClick={onEditClick}
+          className="mt-4 px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800"
+        >
+          {t("edit")}
+        </button>
+        <button
+          onClick={() => window.history.back()}
+          className="mt-4 px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800"
+        >
+          {t("back")}
+        </button>
+      </div>
     </div>
   );
 }
