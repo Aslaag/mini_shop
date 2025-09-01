@@ -13,5 +13,7 @@
   "modifDone": "Le produit a été modifié",
   "asc": "Du - cher au + cher",
   "desc": "Du + cher au - cher",
-  "sortBy": "Trier"
+  "sortBy": "Trier",
+  "productNotFound":"Ce produit n'existe pas",
+  "back": "Retour"
 }

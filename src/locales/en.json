@@ -13,5 +13,7 @@
   "modifDone": "The product has been modified",
   "asc": "Low to High",
   "desc": "High to Low",
-  "sortBy": "Sort By"
+  "sortBy": "Sort By",
+  "productNotFound":"Product not found",
+  "back": "Back"
 }

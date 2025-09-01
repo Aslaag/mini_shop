@@ -13,7 +13,7 @@ export function ProductCard({ product }: Props) {
 
   return (
     <div 
-    onClick={() => navigate(ROUTES.PRODUCT)} 
+    onClick={() => navigate(ROUTES.PRODUCT.replace(":id", product.id))}
     className="border rounded-xl shadow-md p-4 bg-white flex flex-col w-[250px] h-max-[150px]">
       <h2 className="text-lg font-bold">{t("name")}: {product.name}</h2>
       <p className="text-sm text-gray-600">{t("category")}: {product.category}</p>
