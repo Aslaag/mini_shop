@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import { ROUTES } from "../routes/Routes";
 import type { Product } from "../types/Products";
 
@@ -9,14 +9,15 @@ interface Props {
 
 export function ProductCard({ product }: Props) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <article 
       className="border rounded-xl shadow-md p-4 bg-white w-[250px] cursor-pointer hover:shadow-lg transition"
       aria-label={`${product.name}, ${product.category}, ${product.price}€`}
     >
-      <Link 
-        to={ROUTES.PRODUCT.replace(":id", product.id)} 
+      <div 
+        onClick={() => navigate(ROUTES.PRODUCT.replace(":id", product.id))} 
         className="block"
       >
         <h2 className="text-lg font-bold">{t("name")}: {product.name}</h2>
@@ -31,7 +32,7 @@ export function ProductCard({ product }: Props) {
             ? `${t("stock")} (${product.stock})`
             : t("outOfStock")}
         </p>
-      </Link>
+      </div>
     </article>
   );
 }

@@ -5,7 +5,7 @@ import { ProductCardContainer } from "../components/ProductCardContainer";
 import productsData from "../data/products.json";
 import type { Product } from "../types/Products";
 
-export function CatalogueHomePage() {
+export default function CatalogueHomePage() {
   const { t } = useTranslation();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");

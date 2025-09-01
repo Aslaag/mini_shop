@@ -7,6 +7,8 @@ export function SwitchLanguage() {
     i18n.changeLanguage(lng);
   };
 
+  console.log(i18n.language)
+
   return (
     <div role="group" aria-label="Sélecteur de langue" className="flex">
       <button

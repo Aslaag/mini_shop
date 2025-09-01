@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import { CatalogueLayout } from "./layout/CatalogueLayout";
-import { CatalogueHomePage } from "./pages/CatalogueHomePage";
+import CatalogueHomePage from "./pages/CatalogueHomePage";
 import { NotFound } from "./pages/NotFound";
 import { ProductView } from "./pages/ProductView";
 import { ROUTES } from "./routes/Routes";
