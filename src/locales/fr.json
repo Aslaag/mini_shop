@@ -1,0 +1,17 @@
+{
+  "mainTitle": "Mini-shop",
+  "home": "Accueil",
+  "product": "Produit",
+  "edit": "Modifier",
+  "name": "Nom",
+  "category": "Catégorie",
+  "price": "Prix",
+  "stock": "Stock",
+  "search": "Recherche",
+  "outOfStock": "Rupture de stock",
+  "submit": "Valider",
+  "modifDone": "Le produit a été modifié",
+  "asc": "Du - cher au + cher",
+  "desc": "Du + cher au - cher",
+  "sortBy": "Trier"
+}

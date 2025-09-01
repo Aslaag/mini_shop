@@ -1,0 +1,17 @@
+{
+  "mainTitle": "Mini-shop",
+  "home": "Home",
+  "product": "Product",
+  "edit": "Edit",
+  "name": "Name",
+  "category": "Category",
+  "price": "Price",
+  "stock": "Stock",
+  "search": "Search",
+  "outOfStock": "Out of stock",
+  "submit": "Submit",
+  "modifDone": "The product has been modified",
+  "asc": "Low to High",
+  "desc": "High to Low",
+  "sortBy": "Sort By"
+}
