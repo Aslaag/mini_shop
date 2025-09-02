@@ -2,8 +2,8 @@ import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FilterBar } from "../components/FilterBar";
 import { ProductCardContainer } from "../components/ProductCardContainer";
-import productsData from "../data/products.json";
 import type { Product } from "../types/Products";
+import { loadProducts } from "../utils/productsStorage";
 
 export default function CatalogueHomePage() {
   const { t } = useTranslation();
@@ -12,7 +12,7 @@ export default function CatalogueHomePage() {
   const [sortAsc, setSortAsc] = useState<boolean>(true);
 
   const filteredProducts = useMemo(() => {
-    return (productsData as Product[])
+    return (loadProducts() as Product[])
       .filter((p) => p.name.toLowerCase().includes(search.toLowerCase()))
       .filter((p) => category === "all" || p.category === category)
       .slice()

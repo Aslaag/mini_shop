@@ -3,15 +3,15 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { EditProductModal } from "../components/EditProductModal";
 import { ProductDetail } from "../components/ProductDetails";
-import products from "../data/products.json";
 import type { Product } from "../types/Products";
+import { loadProducts, updateProduct } from "../utils/productsStorage";
 
 export function ProductView() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const product = (products as Product[]).find((p) => p.id === id);
+  const product = (loadProducts() as Product[]).find((p) => p.id === id);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [localProduct, setLocalProduct] = useState<Product | null>(product ?? null);
   const [message, setMessage] = useState<string>("");
@@ -32,6 +32,7 @@ export function ProductView() {
   const handleSave = (updatedProduct: Product) => {
     setLocalProduct(updatedProduct);
     setIsModalOpen(false);
+    updateProduct(updatedProduct);
     setMessage(t("updateSuccess"));
     setTimeout(() => setMessage(""), 3000);
   };
