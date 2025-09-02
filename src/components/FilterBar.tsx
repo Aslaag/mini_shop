@@ -16,7 +16,7 @@ export function FilterBar({ search, setSearch, category, setCategory, sortAsc, s
 
   return (
     <div className="flex flex-col items-center p-4 w-full gap-4">
-      <div className="flex w-[60%]">
+      <div className="flex flex-col md:flex-row w-[60%]">
         <label htmlFor="search-input" className="sr-only">
           {t("search")}
         </label>

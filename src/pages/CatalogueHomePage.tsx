@@ -20,7 +20,7 @@ export default function CatalogueHomePage() {
   }, [search, category, sortAsc]);
 
   return (
-    <main className="flex flex-col items-center gap-8" role="main">
+    <main className="flex flex-col items-center justify-center gap-8" role="main">
       <FilterBar
         search={search}
         setSearch={setSearch}

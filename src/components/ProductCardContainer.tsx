@@ -19,7 +19,7 @@ export function ProductCardContainer({ products }: Props) {
 
   return (
     <ul 
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto"
+      className="flex flex-wrap justify-evenly gap-6 w-full max-w-6xl mx-auto pb-4"
       role="list"
     >
       {products.map((p: Product) => (
