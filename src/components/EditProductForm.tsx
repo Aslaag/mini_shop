@@ -10,9 +10,9 @@ interface Props {
 export function EditProductForm({ product, onSave }: Props) {
   const { t } = useTranslation();
   
-  const [price, setPrice] = useState(product.price.toString());
-  const [stock, setStock] = useState(product.stock.toString());
-  const [error, setError] = useState("");
+  const [price, setPrice] = useState<string>(product.price.toString());
+  const [stock, setStock] = useState<string>(product.stock.toString());
+  const [error, setError] = useState<string>("");
 
   const priceInputRef = useRef<HTMLInputElement>(null);
 

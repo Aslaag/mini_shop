@@ -24,5 +24,6 @@
   "errorStock": "Stock must be an integer greater than or equal to 0",
   "€":"(€)",
   "close": "Close ",
-  "noProducts": "No product found"
+  "noProducts": "No product found",
+  "updateSuccess": "The product has been updated"
 }

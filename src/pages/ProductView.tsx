@@ -12,9 +12,9 @@ export function ProductView() {
   const navigate = useNavigate();
 
   const product = (products as Product[]).find((p) => p.id === id);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [localProduct, setLocalProduct] = useState<Product | null>(product ?? null);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<string>("");
 
   if (!localProduct)
     return (

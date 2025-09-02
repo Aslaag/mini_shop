@@ -24,5 +24,6 @@
   "errorStock": "Le stock doit être un entier supérieur ou égal à 0",
   "€":"(€)",
   "close": "Fermer ",
-  "noProducts": "Aucun produit trouvé"
+  "noProducts": "Aucun produit trouvé",
+  "updateSuccess": "Le produit a bien été modifié"
 }

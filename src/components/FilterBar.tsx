@@ -38,7 +38,7 @@ export function FilterBar({ search, setSearch, category, setCategory, sortAsc, s
           onChange={(e) => setCategory(e.target.value)}
           className="h-10 border border-black/50 py-1 px-2 rounded-b-xl md:rounded-bl-none md:rounded-r-xl text-black hover:bg-gray-200 transition-all duration-300"
         >
-          {CATEGORIES.map((c) => (
+          {CATEGORIES.map((c: string) => (
             <option key={c} value={c}>
               {t(c === "all" ? "allCategory" : `category${c}`)}
             </option>

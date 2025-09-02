@@ -7,9 +7,9 @@ import type { Product } from "../types/Products";
 
 export default function CatalogueHomePage() {
   const { t } = useTranslation();
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
-  const [sortAsc, setSortAsc] = useState(true);
+  const [search, setSearch] = useState<string>("");
+  const [category, setCategory] = useState<string>("all");
+  const [sortAsc, setSortAsc] = useState<boolean>(true);
 
   const filteredProducts = useMemo(() => {
     return (productsData as Product[])
