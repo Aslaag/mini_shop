@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import i18n from "i18next";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { I18nextProvider, initReactI18next } from "react-i18next";
-import { BrowserRouter } from "react-router";
-import { ProductCard } from "./ProductCard";
+import { BrowserRouter } from "react-router-dom";
+import { ProductCard } from "../../../components/ProductCard";
 
-// Création d'une instance i18n de test
+
 const i18nTest = i18n.createInstance();
 i18nTest.use(initReactI18next).init({
   lng: "fr",
@@ -23,13 +23,13 @@ i18nTest.use(initReactI18next).init({
   },
 });
 
-// Helper pour rendre les composants avec i18n
+
 function renderWithI18n(ui: ReactNode) {
   return render(<I18nextProvider i18n={i18nTest}>{ui}</I18nextProvider>);
 }
 
 describe("ProductCard", () => {
-  test("affiche les infos d’un produit en stock", () => {
+  it("should display info of an in stock product", () => {
     const product = {
       id: "p1",
       name: "Wireless Mouse",
@@ -50,7 +50,7 @@ describe("ProductCard", () => {
     expect(screen.getByText(/Stock/i)).toBeInTheDocument();
   });
 
-  test("affiche le message 'Rupture de stock' pour un produit en rupture", () => {
+  it("should display an 'out of stock' message if there is no stock for a product", () => {
     const product = {
       id: "p2",
       name: "Mechanical Keyboard",

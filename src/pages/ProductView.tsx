@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import { EditProductModal } from "../components/EditProductModal";
 import { ProductDetail } from "../components/ProductDetails";
 import products from "../data/products.json";

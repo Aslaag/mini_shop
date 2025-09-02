@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CatalogueLayout } from "./layout/CatalogueLayout";
 import CatalogueHomePage from "./pages/CatalogueHomePage";
 import { NotFound } from "./pages/NotFound";

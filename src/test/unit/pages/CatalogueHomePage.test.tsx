@@ -1,16 +1,19 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
-import i18n from "../i18n"; // ton instance i18n
-import CatalogueHomePage from "./CatalogueHomePage";
+import { SwitchLanguage } from "../../../components/SwitchLanguage";
+import i18n from "../../../i18n";
+import CatalogueHomePage from "../../../pages/CatalogueHomePage";
 
-// helper pour le rendu avec les providers nécessaires
 const renderWithProviders = () => {
   return render(
     <I18nextProvider i18n={i18n}>
       <MemoryRouter>
-        <CatalogueHomePage />
+        <>
+          <SwitchLanguage />
+          <CatalogueHomePage />
+        </>
       </MemoryRouter>
     </I18nextProvider>
   );
@@ -24,7 +27,7 @@ describe("CatalogueHomePage", () => {
     expect(screen.getByText(/Notebook A5/i)).toBeInTheDocument();
   });
 
-  it("filtre les produits par catégorie", () => {
+  it("should filter products by category", () => {
     renderWithProviders();
     const categorySelect = screen.getByLabelText(/Catégorie/i);
     fireEvent.change(categorySelect, { target: { value: "Tech" } });
@@ -33,28 +36,39 @@ describe("CatalogueHomePage", () => {
     expect(screen.queryByText(/Notebook A5/i)).not.toBeInTheDocument();
   });
 
-  it("tri les produits par prix", () => {
+  it("should filter products by price", () => {
     renderWithProviders();
+
+    const firstBefore = screen.getAllByRole("listitem")[0];
+    expect(firstBefore.textContent).toContain("Notebook A5");
+
     const sortButton = screen.getByRole("button", { name: /Trier/i });
     fireEvent.click(sortButton);
 
-    const firstProduct = screen.getAllByRole("listitem")[0];
-    // ici on s'assure que le produit le moins cher est affiché en premier
-    expect(firstProduct.textContent).toContain("Notebook A5");
+    const firstAfter = screen.getAllByRole("listitem")[0];
+    expect(firstAfter.textContent).toContain("Desk Lamp");
   });
 
-  it("affiche la rupture de stock correctement", () => {
+  it("should display out of stock correctly", () => {
     renderWithProviders();
     const outOfStockProduct = screen.getByText(/Rupture de stock/i);
     expect(outOfStockProduct).toBeInTheDocument();
   });
 
-  it("change la langue et met à jour l'étiquette", () => {
+  it("should change language and update label (toggle)", async () => {
     renderWithProviders();
-    const languageSelect = screen.getByLabelText(/Langue/i);
 
-    fireEvent.change(languageSelect, { target: { value: "en" } });
-    // Vérifie qu'un texte a été mis à jour après le changement de langue
-    expect(screen.getByPlaceholderText(/Search by name/i)).toBeInTheDocument();
+    const btnFR = screen.getByText(/FR/i);
+    const btnEN = screen.getByText(/EN/i);
+
+    expect(btnFR.getAttribute("aria-pressed")).toBe("true");
+    expect(btnEN.getAttribute("aria-pressed")).toBe("false");
+
+    fireEvent.click(btnEN);
+
+    await waitFor(() => {
+      expect(btnEN.getAttribute("aria-pressed")).toBe("true");
+      expect(btnFR.getAttribute("aria-pressed")).toBe("false");
+    });
   });
 });
