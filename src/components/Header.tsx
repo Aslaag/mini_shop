@@ -9,7 +9,7 @@ export function Header() {
 
   return (
     <header
-      className="relative flex flex-col md:flex-row justify-center items-center w-full gap-4 bg-lime-800/60 py-6 px-20 shadow-md shadow-lime-800/30"
+      className="relative flex flex-col md:flex-row justify-center items-center w-full gap-4 bg-lime-800/80 py-6 px-20 shadow-md shadow-lime-800/30"
     >
       <button
         onClick={() => navigate(ROUTES.HOME)}

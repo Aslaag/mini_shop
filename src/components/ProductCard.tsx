@@ -13,7 +13,7 @@ export function ProductCard({ product }: Props) {
 
   return (
     <article 
-      className="border rounded-xl shadow-md p-4 bg-white w-[250px] cursor-pointer hover:shadow-lg transition"
+      className="border rounded-xl shadow-md p-4 bg-white w-[250px] cursor-pointer hover:shadow-xl transition-all duration-300"
       aria-label={`${product.name}, ${product.category}, ${product.price}€`}
     >
       <div 

@@ -76,7 +76,7 @@ export function EditProductForm({ product, onSave }: Props) {
       <button
         type="button"
         onClick={handleSave}
-        className="px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800 mt-2"
+        className="px-4 py-2 bg-lime-700 text-white rounded hover:bg-lime-800 mt-2 cursor-pointer transition-all duration-300"
       >
         {t("submit")}
       </button>

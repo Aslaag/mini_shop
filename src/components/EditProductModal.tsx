@@ -24,7 +24,7 @@ export function EditProductModal({ product, isOpen, onClose, onSave }: Props) {
         <button
           onClick={onClose}
           aria-label={t("close")}
-          className="absolute top-2 right-2"
+          className="absolute top-2 right-2 cursor-pointer transition-all duration-300"
         >
           ✕
         </button>

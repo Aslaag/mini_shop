@@ -26,7 +26,7 @@ export function FilterBar({ search, setSearch, category, setCategory, sortAsc, s
           placeholder={t("search")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-10 pl-2 border border-black/50 rounded-t-xl md:rounded-tr-none md:rounded-l-xl md:w-[85%] text-black placeholder:text-sm placeholder:text-black/50 hover:bg-gray-200 transition-all duration-300"
+          className="h-10 pl-2 border border-black/50 rounded-t-xl md:rounded-tr-none md:rounded-l-xl md:w-[85%] text-black placeholder:text-sm placeholder:text-black/50 hover:bg-gray-100 transition-all duration-300"
         />
 
         <label htmlFor="category-select" className="sr-only">
@@ -36,7 +36,7 @@ export function FilterBar({ search, setSearch, category, setCategory, sortAsc, s
           id="category-select"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="h-10 border border-black/50 py-1 px-2 rounded-b-xl md:rounded-bl-none md:rounded-r-xl text-black hover:bg-gray-200 transition-all duration-300"
+          className="h-10 border border-black/50 py-1 px-2 rounded-b-xl md:rounded-bl-none md:rounded-r-xl text-black hover:bg-gray-100 transition-all duration-300"
         >
           {CATEGORIES.map((c: string) => (
             <option key={c} value={c}>
