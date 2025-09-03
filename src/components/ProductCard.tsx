@@ -1,3 +1,38 @@
-export function ProductCard() {
-  
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../routes/Routes";
+import type { Product } from "../types/Products";
+
+interface Props {
+  product: Product;
+}
+
+export function ProductCard({ product }: Props) {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  return (
+    <article 
+      className="border rounded-xl shadow-md p-4 bg-white w-[250px] cursor-pointer hover:shadow-xl transition-all duration-300"
+      aria-label={`${product.name}, ${product.category}, ${product.price}€`}
+    >
+      <div 
+        onClick={() => navigate(ROUTES.PRODUCT.replace(":id", product.id))} 
+        className="block"
+      >
+        <h2 className="text-lg font-bold">{t("name")}: {product.name}</h2>
+        <p className="text-sm text-gray-600">{t("category")}: {product.category}</p>
+        <p className="mt-2 font-semibold">{t("price")}: {product.price} €</p>
+        <p
+          className={`mt-1 ${
+            product.stock > 0 ? "text-green-600" : "text-red-600"
+          }`}
+        >
+          {product.stock > 0
+            ? `${t("stock")} (${product.stock})`
+            : t("outOfStock")}
+        </p>
+      </div>
+    </article>
+  );
 }
